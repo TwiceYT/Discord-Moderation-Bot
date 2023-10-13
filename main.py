@@ -48,7 +48,6 @@ async def ping(i: nextcord.Interaction):
 #Embed
 #
 
-@application_checks.has_permissions(manage_messages=True)
 @bot.slash_command(
    name="embed",
    description="send embeded",
@@ -75,7 +74,6 @@ async def embed(i: nextcord.Interaction, title: str = "Default Title" ,field1:st
 #Ban
 #
 
-@application_checks.has_permissions(ban_members=True)
 @bot.slash_command(
    name="ban",
    description="Ban user",
@@ -107,7 +105,6 @@ async def ban(ctx, member: nextcord.Member, *, reason=None):
 #Unban
 #
 
-@application_checks.has_permissions(ban_members=True)
 @bot.slash_command(
    name="unban",
    description="Unban a user",
@@ -154,7 +151,6 @@ async def unban(ctx: nextcord.Interaction, user: nextcord.User):
 #
 
  #kick command
-@application_checks.has_permissions(kick_members=True)
 @bot.slash_command(
     name="kick",
    description="Kick a user",
@@ -179,56 +175,8 @@ async def kick(ctx, member: nextcord.Member, *, reason=None):
 #
 #
 #""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-#Unkick
-#
-
-# @bot.slash_command(
-#    name="unkick",
-#    description="Unkick a user",
-#    guild_ids=[api.GuildID]
-# )
-# async def unkick(ctx: nextcord.Interaction, user: nextcord.User):
-#     # Check if the user has permissions to unkick users (you can customize this check)
-#     if ctx.user.guild_permissions:
-#         try:
-#             # Generate an invite link for the server
-#             #invite= await ctx.guild.text_channels[api.CidInv].create_invite()
-#             invite_channel = None
-#             for channel in ctx.guild.text_channels:
-#                 if channel.permissions_for(ctx.guild.me).create_instant_invite:
-#                     invite_channel = channel
-#                     break
-
-#             if invite_channel:
-#                 # Generate an invite link for the selected channel
-#                 invite = await invite_channel.create_invite()
-
-#             # Send the invite link to the user
-#             await user.send(f"You have been 'unkicked' from {ctx.guild.name}! Here's an invite link to rejoin: {invite}")
-            
-#             # Inform the user that they have been "unkicked"
-#             await ctx.send(f'User {user} has been "unkicked" and sent an invitation to rejoin the server!', ephemeral=True)
-            
-#             # Sending the action to the log channel
-#             channel = ctx.guild.get_channel(api.CidLogM)
-#             if channel:
-#                 embed = nextcord.Embed(
-#                     title="User Unkicked",
-#                     description=f"User {user} has been 'unkicked' and sent an invitation to rejoin the server.",
-#                     color=0xFF6FFF  # pink color
-#                 )
-#                 await channel.send(embed=embed)
-#         except Exception as e:
-#             await ctx.send(f"An error occurred: {str(e)}", ephemeral=True)
-#     else:
-#         await ctx.send("You don't have permission to use this command.", ephemeral=True) 
-
-#
-#
-#""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 #DM Feature
 #
-@application_checks.has_permissions(administrator=True)
 @bot.slash_command(
     name="dm",
     description="Send a message to a user",
