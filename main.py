@@ -27,6 +27,15 @@ async def hello(ctx):
 )
 async def hello(ctx):
     await ctx.send("Hello, I hope you have an amazing day <3")
+#goodbye
+@bot.slash_command(
+    name="Goodbye",
+    description="Send Goodbye in chat<3",
+    guild_ids=[api.GuildID]
+)
+async def hello(ctx):
+    await ctx.send("Bye bye see ya later<3")
+
 
 #
 #
